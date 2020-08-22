@@ -1,0 +1,4 @@
+FROM amazon/aws-sam-cli-emulation-image-nodejs12.x:latest
+ADD init /var/rapid
+RUN chmod +x /var/rapid/init
+ADD TicketAppDepLayer /opt
