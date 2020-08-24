@@ -1,0 +1,38 @@
+# This is the SAM template that represents the architecture of your serverless application
+# https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-template-basics.html
+
+# The AWSTemplateFormatVersion identifies the capabilities of the template
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/format-version-structure.html
+AWSTemplateFormatVersion: 2010-09-09
+Description: >-
+  ticketapp-lambda-dependencylayer
+
+# Transform section specifies one or more macros that AWS CloudFormation uses to process your template
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-section-structure.html
+Transform:
+- AWS::Serverless-2016-10-31
+
+
+# Resources declares the AWS resources that you want to include in the stack
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html
+Resources:
+ 
+  TicketAppDep:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+        LayerName: ticketapp-dependencies-layer
+        Description: Dependencies for ticket app
+        ContentUri: ./
+        CompatibleRuntimes:
+          - nodejs12.x
+        RetentionPolicy: Retain
+  # This is a Lambda function config associated with the source code: get-by-id.js
+
+
+Outputs:
+  TicketAppLambdaDependency:
+    Description: "Ticket App Dependency Version"
+    Value: !Ref TicketAppDep
+    Export:
+      Name: !Sub "${AWS::StackName}-TicketAppLambdaLayer"
+

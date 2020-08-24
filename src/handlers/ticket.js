@@ -18,11 +18,11 @@ function HTTPError (statusCode, message) {
 
 exports.getTicketByIdHandler = async (event) => {
   if (event.httpMethod !== 'GET') {
-    throw new Error(`getMethod only accept GET method, you tried: ${event.httpMethod}`);
+    throw new Error(`getMethod only accept GET method, you tried 5: ${event.httpMethod}`);
   }
 
   // All log statements are written to CloudWatch
-  console.info('from code pipeline received new test3:', event);
+  console.info('from code pipeline received new test for conditional build:', event);
   
   // Get id from pathParameters from APIGateway because of `/{id}` at template.yml
   const ticketid = event.pathParameters.ticketid;

@@ -2,6 +2,11 @@ AWSTemplateFormatVersion: 2010-09-09
 Description: ticketapp
 Transform:
 - AWS::Serverless-2016-10-31
+Parameters:
+  TicketAppDepStackName:
+    Description: Please enter Lambda Layer dependency
+    Type: String
+    Default: ticketapp-lambda-dependency-layer
 Resources:
   TicketAppApi:
     Type: AWS::Serverless::Api
@@ -279,21 +284,13 @@ Resources:
                 - ':'
                 - Ref: TicketAppApi
                 - /*
-  TicketAppDep:
-    Type: AWS::Serverless::LayerVersion
-    Properties:
-      LayerName: ticketapp-dependencies
-      Description: Dependencies for ticket app
-      ContentUri: s3://aws-sam-ticketappdeployment/ticketapp/a5425458fe30778b782b00472e433133
-      CompatibleRuntimes:
-      - nodejs12.x
-      RetentionPolicy: Retain
   getTicketByIdFunction:
     Type: AWS::Serverless::Function
     Properties:
       Handler: handlers/ticket.getTicketByIdHandler
       Layers:
-      - Ref: TicketAppDep
+      - Fn::ImportValue:
+          Fn::Sub: ${TicketAppDepStackName}-TicketAppLambdaLayer
       Runtime: nodejs12.x
       MemorySize: 128
       Timeout: 101
@@ -308,13 +305,14 @@ Resources:
               Ref: TicketAppApi
             Path: /tickets/{ticketid}
             Method: GET
-      CodeUri: s3://aws-sam-ticketappdeployment/ticketapp/476067857ec6a97f234f6a3173a6870d
+      CodeUri: s3://aws-sam-ticketappdeployment/ticketapp/ca60cd0df5386861ded7c56433381988
   getTickets:
     Type: AWS::Serverless::Function
     Properties:
       Handler: handlers/ticket.getTicketsHandler
       Layers:
-      - Ref: TicketAppDep
+      - Fn::ImportValue:
+          Fn::Sub: ${TicketAppDepStackName}-TicketAppLambdaLayer
       Runtime: nodejs12.x
       MemorySize: 128
       Timeout: 100
@@ -329,13 +327,14 @@ Resources:
               Ref: TicketAppApi
             Path: /tickets/
             Method: GET
-      CodeUri: s3://aws-sam-ticketappdeployment/ticketapp/476067857ec6a97f234f6a3173a6870d
+      CodeUri: s3://aws-sam-ticketappdeployment/ticketapp/ca60cd0df5386861ded7c56433381988
   createTickets:
     Type: AWS::Serverless::Function
     Properties:
       Handler: handlers/ticket.createTicketsHandler
       Layers:
-      - Ref: TicketAppDep
+      - Fn::ImportValue:
+          Fn::Sub: ${TicketAppDepStackName}-TicketAppLambdaLayer
       Runtime: nodejs12.x
       MemorySize: 128
       Timeout: 100
@@ -350,9 +349,12 @@ Resources:
               Ref: TicketAppApi
             Path: /tickets/
             Method: PUT
-      CodeUri: s3://aws-sam-ticketappdeployment/ticketapp/476067857ec6a97f234f6a3173a6870d
+      CodeUri: s3://aws-sam-ticketappdeployment/ticketapp/ca60cd0df5386861ded7c56433381988
 Outputs:
   WebEndpoint:
     Description: API Gateway endpoint URL for Prod stage
     Value:
       Fn::Sub: https://${TicketAppApi}.execute-api.${AWS::Region}.amazonaws.com/prod/
+    Export:
+      Name:
+        Fn::Sub: ${AWS::StackName}-VPCID

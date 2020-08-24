@@ -12,6 +12,21 @@ Description: >-
 Transform:
 - AWS::Serverless-2016-10-31
 
+Parameters:
+
+  TicketAppLayerDepStackName:
+    Description: Please enter Lambda Layer dependency
+    Type: String
+    Default: ticketapp-layer-dependencies
+
+Globals:
+  Function:
+    Layers:
+      - Fn::ImportValue: 
+          !Sub "${TicketAppLayerDepStackName}-TicketAppLambdaLayer"
+    Runtime: nodejs12.x
+    MemorySize: 128
+    Timeout: 101
 # Resources declares the AWS resources that you want to include in the stack
 # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html
 Resources:
@@ -307,30 +322,16 @@ Resources:
               
               # Allow users to upload attachments to their
               # folder inside our S3 bucket
-  TicketAppDep:
-    Type: AWS::Serverless::LayerVersion
-    Properties:
-        LayerName: ticketapp-dependencies
-        Description: Dependencies for ticket app
-        ContentUri: ../dependencies/
-        CompatibleRuntimes:
-          - nodejs12.x
-        RetentionPolicy: Retain
+
   # This is a Lambda function config associated with the source code: get-by-id.js
   getTicketByIdFunction:
     Type: AWS::Serverless::Function
     Properties:
       Handler: handlers/ticket.getTicketByIdHandler
-      Layers:
-        - !Ref TicketAppDep
-      Runtime: nodejs12.x
-      MemorySize: 128
-      Timeout: 101
       Description: This will insert ticket in Ticket table in Aurora table Ticket.
       Policies:
         # Give Create/Read/Update/Delete Permissions to the aurora
         - arn:aws:iam::899885580749:policy/TicketappRDSFullDataAccess
-
       Events:
         Api:
           Type: Api
@@ -346,11 +347,6 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: handlers/ticket.getTicketsHandler
-      Layers:
-        - !Ref TicketAppDep
-      Runtime: nodejs12.x
-      MemorySize: 128
-      Timeout: 100
       Description: This method will get all tickets. 
       Policies:
         # Give Create/Read/Update/Delete Permissions to the aurora
@@ -367,11 +363,6 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: handlers/ticket.createTicketsHandler
-      Layers:
-        - !Ref TicketAppDep
-      Runtime: nodejs12.x
-      MemorySize: 128
-      Timeout: 100
       Description: This method will insert ticket record in table Ticket.
       Policies:
         # Give Create/Read/Update/Delete Permissions to the aurora
@@ -388,4 +379,6 @@ Outputs:
   WebEndpoint:
     Description: "API Gateway endpoint URL for Prod stage"
     Value: !Sub "https://${TicketAppApi}.execute-api.${AWS::Region}.amazonaws.com/prod/"
+    Export:
+      Name: !Sub "${AWS::StackName}-VPCID"
 
