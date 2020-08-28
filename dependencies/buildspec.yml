@@ -1,0 +1,37 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      # Install all dependencies (including dependencies for running tests)
+
+      - mkdir ./dependencies/nodejs
+      - cd ./dependencies/nodejs
+      
+      - cp ../../src/package.json .
+      - ls
+      - npm install
+      - ls
+  pre_build:
+    commands:
+      # Discover and run unit tests in the '__tests__' directory
+      #- npm run test
+      # Remove all unit tests to reduce the size of the package that will be ultimately uploaded to Lambda
+      #- rm -rf ./__tests__
+      # Remove all dependencies not needed for the Lambda deployment package (the packages from devDependencies in package.json)
+      #- npm prune --production
+  build:
+    commands:
+      # Use AWS SAM to package the application by using AWS CloudFormation
+      #- aws cloudformation package --template template.yml --s3-bucket $S3_BUCKET --output-template template-export.yml
+      - cd ../
+      - aws cloudformation package --template-file template.yml --s3-bucket aws-sam-ticketappdeployment --output-template-file dependencies-out.yml --s3-prefix ticketapp/dependencies
+  post_build:
+    commands:
+    # get back to root
+    - cd ../
+    - cp ./dependencies/dependencies-out.yml .
+
+artifacts:
+  type: zip
+  files:
+    - dependencies-out.yml

@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "5d716602-e829-4e6e-adec-b28144864ccc",
+		"name": "AWS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetToken",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-amz-target",
+						"value": "AWSCognitoIdentityProviderService.InitiateAuth",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-amz-json-1.1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"AuthFlow\":\"USER_PASSWORD_AUTH\",\"ClientId\":\"41hj2kne1r60jphsals9ivtk2r\",\"AuthParameters\":{\"USERNAME\":\"admin@ticketapp.com\",\"PASSWORD\":\"test@123\"},\"ClientMetadata\":{}}"
+				},
+				"url": {
+					"raw": "https://cognito-idp.eu-central-1.amazonaws.com/",
+					"protocol": "https",
+					"host": [
+						"cognito-idp",
+						"eu-central-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

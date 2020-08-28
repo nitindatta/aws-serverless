@@ -39,7 +39,7 @@ aws cloudformation deploy \
         CAPABILITY_IAM
 
 # TODO: wait stack creation/update completion
-sleep 180
+sleep 300
 
 # Enable the Data API
 aws rds modify-db-cluster --db-cluster-identifier $db_cluster_name --enable-http-endpoint

@@ -1,11 +1,11 @@
 module.exports = (sequelize, type) => {
     return sequelize.define('ticket', {
-      ticketid: {
+      id: {
         type: type.INTEGER,
         primaryKey: true,
         autoIncrement: true
       },
-      pern_id: type.STRING,
+      pern_id: type.INTEGER,
       user_id: type.STRING,
       transaction_date: type.DATE,
       type: type.STRING,
@@ -24,6 +24,10 @@ module.exports = (sequelize, type) => {
       parent: type.STRING,
       valid_to: type.STRING,
       agreed: type.DOUBLE,
-      option: type.STRING
+      option: type.STRING,
+      temp_perm_key: {
+        type: type.UUID,
+        allowNull: false
+      }
     })
   }

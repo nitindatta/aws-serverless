@@ -11,4 +11,13 @@ async function executeQuery(sql){
     return results;
 }
 
+async function update(sql){
+       
+    console.info('SqlQuery: ' + sql);
+    const results=  await sequelizeHandler.query(sql, { type: QueryTypes.UPDATE })
+    
+    return results;
+}
+
 module.exports.executeQuery = executeQuery
+module.exports.update = update

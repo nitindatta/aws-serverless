@@ -19,11 +19,15 @@ Parameters:
     Type: String
     Default: ticketapp-layer-dependencies
 
+  TicketAppLayer:
+    Description: Please enter Lambda Layer dependency
+    Type: String
+    Default: arn:aws:lambda:eu-central-1:899885580749:layer:ticketapp-dependencies-layer:15
+
 Globals:
   Function:
     Layers:
-      - Fn::ImportValue: 
-          !Sub "${TicketAppLayerDepStackName}-TicketAppLambdaLayer"
+      - Ref: TicketAppLayer
     Runtime: nodejs12.x
     MemorySize: 128
     Timeout: 101
@@ -216,6 +220,259 @@ Resources:
                   application/json: "{\"statusCode\": 200}"
                 passthroughBehavior: "when_no_match"
                 type: "mock"
+
+          /tickets/upload:
+            post:
+              consumes:
+              - text/plain
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+                  headers:
+                    Access-Control-Allow-Origin:
+                        type: "string"
+                    Access-Control-Allow-Headers:
+                        type: "string"
+                    Access-Control-Allow-Methods:
+                        type: "string"
+              security:
+              - sigv4: []
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Origin: '''*'''
+                      method.response.header.Access-Control-Allow-Headers: '''*'''
+                      method.response.header.Access-Control-Allow-Methods: '''GET'''
+                uri: 
+                 Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${uploadTickets.Arn}/invocations
+                httpMethod: "POST" # post to lamba function
+                type: "aws_proxy" #proxy integration
+
+            options:
+              consumes:
+              - "application/json"
+              produces:
+              - "application/json"
+              responses:
+                "200":
+                  description: "200 response"
+                  schema:
+                    $ref: "#/definitions/Empty"
+                  headers:
+                    Access-Control-Allow-Origin:
+                      type: "string"
+                    Access-Control-Allow-Methods:
+                      type: "string"
+                    Access-Control-Allow-Headers:
+                      type: "string"
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: "200"
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Methods: "'POST,GET,OPTIONS'"
+                      method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+                      method.response.header.Access-Control-Allow-Origin: "'*'"
+                requestTemplates:
+                  application/json: "{\"statusCode\": 200}"
+                passthroughBehavior: "when_no_match"
+                type: "mock"
+
+          /tickets/insert:
+            post:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+                  headers:
+                    Access-Control-Allow-Origin:
+                        type: "string"
+                    Access-Control-Allow-Headers:
+                        type: "string"
+                    Access-Control-Allow-Methods:
+                        type: "string"
+              security:
+              - sigv4: []
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Origin: '''*'''
+                      method.response.header.Access-Control-Allow-Headers: '''*'''
+                      method.response.header.Access-Control-Allow-Methods: '''GET'''
+                uri: 
+                 Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${insertTickets.Arn}/invocations
+                httpMethod: "POST" # post to lamba function
+                type: "aws_proxy" #proxy integration
+
+            options:
+              consumes:
+              - "application/json"
+              produces:
+              - "application/json"
+              responses:
+                "200":
+                  description: "200 response"
+                  schema:
+                    $ref: "#/definitions/Empty"
+                  headers:
+                    Access-Control-Allow-Origin:
+                      type: "string"
+                    Access-Control-Allow-Methods:
+                      type: "string"
+                    Access-Control-Allow-Headers:
+                      type: "string"
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: "200"
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Methods: "'POST,GET,OPTIONS'"
+                      method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+                      method.response.header.Access-Control-Allow-Origin: "'*'"
+                requestTemplates:
+                  application/json: "{\"statusCode\": 200}"
+                passthroughBehavior: "when_no_match"
+                type: "mock"
+                
+          /perns/insert:
+            post:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+                  headers:
+                    Access-Control-Allow-Origin:
+                        type: "string"
+                    Access-Control-Allow-Headers:
+                        type: "string"
+                    Access-Control-Allow-Methods:
+                        type: "string"
+              security:
+              - sigv4: []
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Origin: '''*'''
+                      method.response.header.Access-Control-Allow-Headers: '''*'''
+                      method.response.header.Access-Control-Allow-Methods: '''GET'''
+                uri: 
+                 Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${insertPerns.Arn}/invocations
+                httpMethod: "POST" # post to lamba function
+                type: "aws_proxy" #proxy integration
+
+            options:
+              consumes:
+              - "application/json"
+              produces:
+              - "application/json"
+              responses:
+                "200":
+                  description: "200 response"
+                  schema:
+                    $ref: "#/definitions/Empty"
+                  headers:
+                    Access-Control-Allow-Origin:
+                      type: "string"
+                    Access-Control-Allow-Methods:
+                      type: "string"
+                    Access-Control-Allow-Headers:
+                      type: "string"
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: "200"
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Methods: "'POST,GET,OPTIONS'"
+                      method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+                      method.response.header.Access-Control-Allow-Origin: "'*'"
+                requestTemplates:
+                  application/json: "{\"statusCode\": 200}"
+                passthroughBehavior: "when_no_match"
+                type: "mock"
+
+          /positions/insert:
+            post:
+              consumes:
+              - application/json
+              produces:
+              - application/json
+              responses:
+                '200':
+                  description: 200 response
+                  schema:
+                    $ref: '#/definitions/Empty'
+                  headers:
+                    Access-Control-Allow-Origin:
+                        type: "string"
+                    Access-Control-Allow-Headers:
+                        type: "string"
+                    Access-Control-Allow-Methods:
+                        type: "string"
+              security:
+              - sigv4: []
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: '200'
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Origin: '''*'''
+                      method.response.header.Access-Control-Allow-Headers: '''*'''
+                      method.response.header.Access-Control-Allow-Methods: '''GET'''
+                uri: 
+                 Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${insertPositions.Arn}/invocations
+                httpMethod: "POST" # post to lamba function
+                type: "aws_proxy" #proxy integration
+
+            options:
+              consumes:
+              - "application/json"
+              produces:
+              - "application/json"
+              responses:
+                "200":
+                  description: "200 response"
+                  schema:
+                    $ref: "#/definitions/Empty"
+                  headers:
+                    Access-Control-Allow-Origin:
+                      type: "string"
+                    Access-Control-Allow-Methods:
+                      type: "string"
+                    Access-Control-Allow-Headers:
+                      type: "string"
+              x-amazon-apigateway-integration:
+                responses:
+                  default:
+                    statusCode: "200"
+                    responseParameters:
+                      method.response.header.Access-Control-Allow-Methods: "'POST,GET,OPTIONS'"
+                      method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+                      method.response.header.Access-Control-Allow-Origin: "'*'"
+                requestTemplates:
+                  application/json: "{\"statusCode\": 200}"
+                passthroughBehavior: "when_no_match"
+                type: "mock"
+
       GatewayResponses:
         DEFAULT_4xx:
           ResponseParameters:
@@ -374,6 +631,68 @@ Resources:
             RestApiId: !Ref TicketAppApi
             Path: /tickets/
             Method: PUT
+
+  uploadTickets:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/ticket.uploadTicketsHandler
+      Description: This method will insert ticket record in table Ticket.
+      Policies:
+        # Give Create/Read/Update/Delete Permissions to the aurora
+        - arn:aws:iam::899885580749:policy/TicketappRDSFullDataAccess
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            RestApiId: !Ref TicketAppApi
+            Path: /tickets/upload
+            Method: POST
+  insertTickets:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/ticket.insertTicketsHandler
+      Description: This method will insert ticket record in table Ticket.
+      Policies:
+        # Give Create/Read/Update/Delete Permissions to the aurora
+        - arn:aws:iam::899885580749:policy/TicketappRDSFullDataAccess
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            RestApiId: !Ref TicketAppApi
+            Path: /tickets/insert
+            Method: POST
+  insertPerns:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/pern.insertPernsHandler
+      Description: This method will insert ticket record in table Ticket.
+      Policies:
+        # Give Create/Read/Update/Delete Permissions to the aurora
+        - arn:aws:iam::899885580749:policy/TicketappRDSFullDataAccess
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            RestApiId: !Ref TicketAppApi
+            Path: /perns/insert
+            Method: POST
+
+  insertPositions:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/position.insertPositionHandler
+      Description: This method will insert ticket record in table Ticket.
+      Policies:
+        # Give Create/Read/Update/Delete Permissions to the aurora
+        - arn:aws:iam::899885580749:policy/TicketappRDSFullDataAccess
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            RestApiId: !Ref TicketAppApi
+            Path: /positions/insert
+            Method: POST
 
 Outputs:
   WebEndpoint:
