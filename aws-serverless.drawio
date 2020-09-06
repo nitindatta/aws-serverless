@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-09-06T14:19:15.197Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36" etag="2vHE37l54B6hJWOzOZZR" version="13.6.6" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2020-09-06T14:20:17.469Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36" etag="ntRKDUGjSz1LKU8bZp3M" version="13.6.6" type="github" pages="2">
   <diagram id="NbJ3WY8GJYofwHBJAQQ3" name="Page-1">
     <mxGraphModel dx="1038" dy="548" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -57,6 +57,18 @@
       <root>
         <mxCell id="3XbMXMytqLQuELr-DAJM-0" />
         <mxCell id="3XbMXMytqLQuELr-DAJM-1" parent="3XbMXMytqLQuELr-DAJM-0" />
+        <mxCell id="Gcay-jng4YYDT9NPthoj-0" value="" style="outlineConnect=0;fontColor=#232F3E;gradientColor=#4AB29A;gradientDirection=north;fillColor=#116D5B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.textract;" vertex="1" parent="3XbMXMytqLQuELr-DAJM-1">
+          <mxGeometry x="560" y="150" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="Gcay-jng4YYDT9NPthoj-1" value="" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.lambda_function;fillColor=#F58534;gradientColor=none;" vertex="1" parent="3XbMXMytqLQuELr-DAJM-1">
+          <mxGeometry x="370" y="156" width="69" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="Gcay-jng4YYDT9NPthoj-2" value="" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.s3;fillColor=#E05243;gradientColor=none;" vertex="1" parent="3XbMXMytqLQuELr-DAJM-1">
+          <mxGeometry x="180" y="150" width="76.5" height="93" as="geometry" />
+        </mxCell>
+        <mxCell id="Gcay-jng4YYDT9NPthoj-3" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.user;" vertex="1" parent="3XbMXMytqLQuELr-DAJM-1">
+          <mxGeometry x="20" y="172" width="47.5" height="50" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
