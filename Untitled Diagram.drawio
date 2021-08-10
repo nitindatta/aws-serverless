@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-08-10T10:57:13.231Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36" etag="cuDWT-ilfDV1mxShqh2X" version="14.9.5" type="github" pages="12">
+<mxfile host="app.diagrams.net" modified="2021-08-10T10:57:50.397Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36" etag="4jfItFPLg1VCOYeTB-1l" version="14.9.5" type="github" pages="12">
   <diagram id="zHoe3LK2QWmVjBHO4GkU" name="Page-1">
     <mxGraphModel dx="1038" dy="547" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
@@ -873,7 +873,7 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram id="PFHL7MjzlPpF7f0WofpK" name="Page-12">
+  <diagram id="PFHL7MjzlPpF7f0WofpK" name="AzureServerless">
     <mxGraphModel dx="1384" dy="729" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="rBkvDTXpkVK8iffqURI2-0" />
