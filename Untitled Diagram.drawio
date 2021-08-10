@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-08-10T10:59:19.210Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36" etag="zhU6i9PskwFn0mfcf9ik" version="14.9.5" type="github" pages="12">
+<mxfile host="app.diagrams.net" modified="2021-08-10T11:24:33.903Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36" etag="_T4ucp0UIaFMBgxC-OA6" version="14.9.5" type="github" pages="12">
   <diagram id="zHoe3LK2QWmVjBHO4GkU" name="Page-1">
     <mxGraphModel dx="1038" dy="547" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
@@ -915,7 +915,7 @@
           <mxGeometry x="863" y="296.63" width="31.36" height="28.74" as="geometry" />
         </mxCell>
         <mxCell id="rBkvDTXpkVK8iffqURI2-22" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAEDED;fontSize=22;fontColor=#FFFFFF;strokeColor=none;labelBackgroundColor=none;" vertex="1" parent="rBkvDTXpkVK8iffqURI2-1">
-          <mxGeometry x="215" y="557" width="684" height="260" as="geometry" />
+          <mxGeometry x="215" y="557" width="684" height="251" as="geometry" />
         </mxCell>
         <mxCell id="rBkvDTXpkVK8iffqURI2-23" value="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#4D9900;strokeColor=none;labelBackgroundColor=none;" vertex="1" parent="rBkvDTXpkVK8iffqURI2-1">
           <mxGeometry x="228" y="564" width="23" height="23" as="geometry" />
@@ -930,31 +930,31 @@
           <mxGeometry x="264.25" y="597" width="607.75" height="40" as="geometry" />
         </mxCell>
         <mxCell id="rBkvDTXpkVK8iffqURI2-27" value="3" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#4D9900;strokeColor=none;labelBackgroundColor=none;" vertex="1" parent="rBkvDTXpkVK8iffqURI2-1">
-          <mxGeometry x="230" y="626" width="23" height="23" as="geometry" />
+          <mxGeometry x="229" y="626" width="23" height="23" as="geometry" />
         </mxCell>
         <mxCell id="rBkvDTXpkVK8iffqURI2-28" value="API Gateway hosting API&#39;s&amp;nbsp;" style="text;html=1;align=left;verticalAlign=top;spacingTop=-4;fontSize=14;labelBackgroundColor=none;whiteSpace=wrap;" vertex="1" parent="rBkvDTXpkVK8iffqURI2-1">
           <mxGeometry x="265.25" y="627" width="609.75" height="40" as="geometry" />
         </mxCell>
         <mxCell id="rBkvDTXpkVK8iffqURI2-29" value="4" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#4D9900;strokeColor=none;labelBackgroundColor=none;" vertex="1" parent="rBkvDTXpkVK8iffqURI2-1">
-          <mxGeometry x="230" y="659" width="23" height="23" as="geometry" />
+          <mxGeometry x="229" y="659" width="23" height="23" as="geometry" />
         </mxCell>
         <mxCell id="rBkvDTXpkVK8iffqURI2-30" value="Business Layer services hosted on Azure Functions, and workflows." style="text;html=1;align=left;verticalAlign=top;spacingTop=-4;fontSize=14;labelBackgroundColor=none;whiteSpace=wrap;" vertex="1" parent="rBkvDTXpkVK8iffqURI2-1">
           <mxGeometry x="265.25" y="660" width="607.75" height="40" as="geometry" />
         </mxCell>
         <mxCell id="rBkvDTXpkVK8iffqURI2-31" value="5" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#4D9900;strokeColor=none;labelBackgroundColor=none;" vertex="1" parent="rBkvDTXpkVK8iffqURI2-1">
-          <mxGeometry x="231" y="691" width="23" height="23" as="geometry" />
+          <mxGeometry x="230" y="691" width="23" height="23" as="geometry" />
         </mxCell>
         <mxCell id="rBkvDTXpkVK8iffqURI2-32" value="Internal service to service communication using Queue" style="text;html=1;align=left;verticalAlign=top;spacingTop=-4;fontSize=14;labelBackgroundColor=none;whiteSpace=wrap;" vertex="1" parent="rBkvDTXpkVK8iffqURI2-1">
           <mxGeometry x="266.25" y="692" width="607.75" height="40" as="geometry" />
         </mxCell>
         <mxCell id="rBkvDTXpkVK8iffqURI2-33" value="6" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#4D9900;strokeColor=none;labelBackgroundColor=none;" vertex="1" parent="rBkvDTXpkVK8iffqURI2-1">
-          <mxGeometry x="232" y="725" width="23" height="23" as="geometry" />
+          <mxGeometry x="230" y="725" width="23" height="23" as="geometry" />
         </mxCell>
         <mxCell id="rBkvDTXpkVK8iffqURI2-34" value="Outbound traffic to Azure Cosmos Database flows through secured private link." style="text;html=1;align=left;verticalAlign=top;spacingTop=-4;fontSize=14;labelBackgroundColor=none;whiteSpace=wrap;" vertex="1" parent="rBkvDTXpkVK8iffqURI2-1">
           <mxGeometry x="267.25" y="727" width="607.75" height="40" as="geometry" />
         </mxCell>
         <mxCell id="rBkvDTXpkVK8iffqURI2-35" value="7" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#4D9900;strokeColor=none;labelBackgroundColor=none;" vertex="1" parent="rBkvDTXpkVK8iffqURI2-1">
-          <mxGeometry x="233" y="758" width="23" height="23" as="geometry" />
+          <mxGeometry x="231" y="758" width="23" height="23" as="geometry" />
         </mxCell>
         <mxCell id="rBkvDTXpkVK8iffqURI2-36" value="Serverless Cosmos DB for persisting state." style="text;html=1;align=left;verticalAlign=top;spacingTop=-4;fontSize=14;labelBackgroundColor=none;whiteSpace=wrap;" vertex="1" parent="rBkvDTXpkVK8iffqURI2-1">
           <mxGeometry x="268.25" y="759" width="607.75" height="40" as="geometry" />
@@ -1017,7 +1017,7 @@
           <mxGeometry x="304" y="371.38" width="23" height="23" as="geometry" />
         </mxCell>
         <mxCell id="rBkvDTXpkVK8iffqURI2-64" value="3" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#4D9900;strokeColor=none;labelBackgroundColor=none;" vertex="1" parent="rBkvDTXpkVK8iffqURI2-1">
-          <mxGeometry x="470.25" y="371.38" width="23" height="23" as="geometry" />
+          <mxGeometry x="470.25" y="373.38" width="23" height="23" as="geometry" />
         </mxCell>
         <mxCell id="rBkvDTXpkVK8iffqURI2-65" value="4" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#4D9900;strokeColor=none;labelBackgroundColor=none;" vertex="1" parent="rBkvDTXpkVK8iffqURI2-1">
           <mxGeometry x="670.95" y="312.87" width="23" height="23" as="geometry" />
