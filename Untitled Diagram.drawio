@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-11-18T08:05:10.272Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36" etag="Kk8DY7ohc7VsHdAX76Gx" version="15.5.5" type="github" pages="14">
+<mxfile host="app.diagrams.net" modified="2021-11-21T06:17:39.585Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" etag="Fc6zGMPp2vRyJEQLy5GO" version="15.8.2" type="github" pages="16">
   <diagram id="zHoe3LK2QWmVjBHO4GkU" name="Page-1">
-    <mxGraphModel dx="1038" dy="481" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+    <mxGraphModel dx="1038" dy="539" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1164,6 +1164,73 @@
         <mxCell id="8GtgZcUBgQao9aRLXxms-25" value="Code Build" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.codebuild;fillColor=#759C3E;gradientColor=none;strokeColor=#FFB570;strokeWidth=2;" vertex="1" parent="8GtgZcUBgQao9aRLXxms-1">
           <mxGeometry x="448" y="596" width="50" height="61" as="geometry" />
         </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="hAoiT9bP2OCPq7FwSJM7" name="Conceptual View(Architcture)">
+    <mxGraphModel dx="1384" dy="719" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="nRVAc2GQEnRFBZZcFbHS-0" />
+        <mxCell id="nRVAc2GQEnRFBZZcFbHS-1" parent="nRVAc2GQEnRFBZZcFbHS-0" />
+        <mxCell id="nRVAc2GQEnRFBZZcFbHS-3" value="Data Ingestion/&lt;br&gt;Collection" style="whiteSpace=wrap;html=1;" vertex="1" parent="nRVAc2GQEnRFBZZcFbHS-1">
+          <mxGeometry x="189" y="160" width="81" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="nRVAc2GQEnRFBZZcFbHS-4" value="Data Storage &amp;amp;Integration&lt;br&gt;&lt;i&gt;&lt;br&gt;(Store and make data available for processing)&lt;/i&gt;" style="whiteSpace=wrap;html=1;direction=south;" vertex="1" parent="nRVAc2GQEnRFBZZcFbHS-1">
+          <mxGeometry x="283" y="160" width="213" height="83" as="geometry" />
+        </mxCell>
+        <mxCell id="nRVAc2GQEnRFBZZcFbHS-5" value="Data Processing&lt;br&gt;&lt;br&gt;&lt;i&gt;(Applying data validations, transformations, business logic)&lt;/i&gt;" style="whiteSpace=wrap;html=1;direction=south;" vertex="1" parent="nRVAc2GQEnRFBZZcFbHS-1">
+          <mxGeometry x="283" y="318" width="213" height="81" as="geometry" />
+        </mxCell>
+        <mxCell id="nRVAc2GQEnRFBZZcFbHS-6" value="Data Pipeline" style="whiteSpace=wrap;html=1;direction=south;" vertex="1" parent="nRVAc2GQEnRFBZZcFbHS-1">
+          <mxGeometry x="189" y="412" width="407" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="nRVAc2GQEnRFBZZcFbHS-8" value="Data Analysis&lt;br&gt;User Interface" style="whiteSpace=wrap;html=1;" vertex="1" parent="nRVAc2GQEnRFBZZcFbHS-1">
+          <mxGeometry x="512" y="160" width="82" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="d4Y4zOqXuRjLG1oDjrj_-1" value="Stream" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;direction=north;" vertex="1" parent="nRVAc2GQEnRFBZZcFbHS-1">
+          <mxGeometry x="80" y="220" width="80" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="d4Y4zOqXuRjLG1oDjrj_-3" value="Batch" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;direction=north;" vertex="1" parent="nRVAc2GQEnRFBZZcFbHS-1">
+          <mxGeometry x="81" y="307" width="80" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="d4Y4zOqXuRjLG1oDjrj_-4" value="Metadata Repository" style="whiteSpace=wrap;html=1;direction=south;" vertex="1" parent="nRVAc2GQEnRFBZZcFbHS-1">
+          <mxGeometry x="286" y="260" width="80" height="43" as="geometry" />
+        </mxCell>
+        <mxCell id="d4Y4zOqXuRjLG1oDjrj_-6" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;endSize=5;strokeWidth=1;startSize=5;" edge="1" parent="nRVAc2GQEnRFBZZcFbHS-1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="393" y="313" as="sourcePoint" />
+            <mxPoint x="393" y="249" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d4Y4zOqXuRjLG1oDjrj_-7" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;endSize=5;strokeWidth=1;startSize=5;" edge="1" parent="nRVAc2GQEnRFBZZcFbHS-1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="442" y="314" as="sourcePoint" />
+            <mxPoint x="442" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d4Y4zOqXuRjLG1oDjrj_-9" value="Data &lt;br&gt;consumers" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#232F3E;fillColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.users;shadow=0;" vertex="1" parent="nRVAc2GQEnRFBZZcFbHS-1">
+          <mxGeometry x="682" y="169" width="42" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="d4Y4zOqXuRjLG1oDjrj_-12" value="Business &lt;br&gt;stakeholder" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#232F3E;fillColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.users;shadow=0;" vertex="1" parent="nRVAc2GQEnRFBZZcFbHS-1">
+          <mxGeometry x="682" y="251" width="42" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="d4Y4zOqXuRjLG1oDjrj_-13" value="BI Analysts" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#232F3E;fillColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.users;shadow=0;" vertex="1" parent="nRVAc2GQEnRFBZZcFbHS-1">
+          <mxGeometry x="680" y="338" width="42" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="d4Y4zOqXuRjLG1oDjrj_-15" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#434445;aspect=fixed;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.vvd.nsx_dashboard;" vertex="1" parent="nRVAc2GQEnRFBZZcFbHS-1">
+          <mxGeometry x="604" y="160" width="50" height="46.5" as="geometry" />
+        </mxCell>
+        <mxCell id="d4Y4zOqXuRjLG1oDjrj_-17" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/iphone-calculator-shopping-report/128/Reports.png;shadow=0;sketch=1;" vertex="1" parent="nRVAc2GQEnRFBZZcFbHS-1">
+          <mxGeometry x="330" y="456" width="128" height="128" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="lfPqjIMS7ho-kH6dxj0_" name="Page-16">
+    <mxGraphModel dx="1038" dy="539" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="Fck-C--cPsVOhIvvTof4-0" />
+        <mxCell id="Fck-C--cPsVOhIvvTof4-1" parent="Fck-C--cPsVOhIvvTof4-0" />
       </root>
     </mxGraphModel>
   </diagram>
